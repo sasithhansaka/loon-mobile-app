@@ -71,10 +71,9 @@ fun SalonDashboardContent() {
     var totalBookings by remember { mutableIntStateOf(0) }
     var totalRevenue by remember { mutableDoubleStateOf(0.0) }
 
-    // Calculate screen width for responsive padding
     val configuration = LocalConfiguration.current
     val screenWidth = configuration.screenWidthDp.dp
-    val horizontalPadding = (screenWidth * 0.05f).coerceAtMost(16.dp) // 5% of screen width, max 16dp
+    val horizontalPadding = (screenWidth * 0.05f).coerceAtMost(16.dp) 
 
     LaunchedEffect(salonID) {
         getBookingsData(salonID) { fetchedBookings, totalBookingsCount, totalRevenueAmount ->
@@ -296,7 +295,6 @@ fun SalonDashboardContent() {
             }
         }
 
-        // Show Done Appointments
         items(bookings.filter { it.status == "done" }) { booking ->
             BookingItem(booking, horizontalPadding) { bookingId, newStatus ->
                 updateBookingStatus(bookingId, newStatus) {

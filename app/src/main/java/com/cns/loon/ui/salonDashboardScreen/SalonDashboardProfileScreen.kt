@@ -184,7 +184,6 @@ fun SalonProfileScreen() {
         )
     }
 
-    // Main layout
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -240,7 +239,6 @@ fun SalonProfileScreen() {
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                // Profile Image
                 Box(
                     modifier = Modifier
                         .size(120.dp)
@@ -461,7 +459,6 @@ fun SalonProfileScreen() {
                     )
                 }
 
-                // Bottom spacing
                 Spacer(modifier = Modifier.height(40.dp))
             }
         }
