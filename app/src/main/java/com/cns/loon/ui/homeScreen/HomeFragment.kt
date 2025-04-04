@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.cns.loon.R
-
+import com.cns.loon.ui.theme.DarkGreenColor
 
 
 @Composable
@@ -43,20 +43,20 @@ fun HomeFragment(navController: NavHostController) {
             Font(R.font.londonbridgefontfamily)
         )
 
-        Text(
-            text = "LOON",
-            fontSize = 50.sp,
-            fontWeight = FontWeight.ExtraBold,
-            color = Color(0xff006400),
-            fontFamily = customFont,
+        // Logo
+        Image(
+            painter = painterResource(id = R.drawable.logo_text_2),
+            contentDescription = "Loon Logo",
             modifier = Modifier
-                .padding(top = 10.dp, bottom = 10.dp)
+                .height(80.dp)
+                .width(160.dp)
+                .padding(vertical = 8.dp),
+            contentScale = ContentScale.FillWidth
         )
 
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color(0x80DAF7DC))
                 .padding(vertical = 16.dp)
         ) {
             Column(
@@ -69,7 +69,7 @@ fun HomeFragment(navController: NavHostController) {
                     text = "Discover and Book",
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Normal,
-                    color = Color(0xFF8B6A4D),
+                    color = DarkGreenColor,
                     fontFamily = customFont,
                     modifier = Modifier.padding(top = 10.dp, bottom = 5.dp)
                 )
@@ -78,7 +78,7 @@ fun HomeFragment(navController: NavHostController) {
                     text = "Local Beauty Professionals",
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Normal,
-                    color = Color(0xFF8B6A4D),
+                    color = DarkGreenColor,
                     fontFamily = customFont,
                     modifier = Modifier.padding(top = 5.dp, bottom = 26.dp)
                 )
@@ -88,7 +88,6 @@ fun HomeFragment(navController: NavHostController) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color(0x80DAF7DC))
                 .padding(vertical = 30.dp)
         ) {
             GridLayout(navController)
