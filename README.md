@@ -2,7 +2,6 @@
 
 Loon is a mobile application designed to simplify salon booking and management. With Loon, users can seamlessly book appointments, and salon owners can efficiently manage their schedules and bookings. Built using **Kotlin** and **Jetpack Compose**, the app leverages modern frameworks and Firebase for robust functionality.
 
-----video eka -------
 
 ![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?style=for-the-badge&logo=kotlin&logoColor=white)
 ![Jetpack Compose](https://img.shields.io/badge/Jetpack_Compose-4285F4?style=for-the-badge&logo=android&logoColor=white)
@@ -42,9 +41,6 @@ The app uses Firebase for the following:
 - **Authentication**: Firebase Authentication
 - **Cloud Functions**: Firebase Cloud Functions
 - **Architecture**: MVVM (Model-View-ViewModel)
-
----
-
 
 ## How to Run
 
