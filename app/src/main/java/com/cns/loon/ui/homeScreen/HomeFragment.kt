@@ -1,6 +1,7 @@
 package com.cns.loon.ui.homeScreen
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -39,9 +40,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.cns.loon.R
 import com.cns.loon.ui.theme.*
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.zIndex
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.runtime.LaunchedEffect
+import kotlinx.coroutines.delay
 
 @Composable
 fun HomeFragment(navController: NavHostController) {
@@ -488,7 +491,7 @@ fun FeaturedStylistsSection(navController: NavHostController) {
                 name = "Jennifer",
                 specialty = "Hair Stylist",
                 rating = 4.9f,
-                imageResId = R.drawable.braids, // Replace with your stylist image resources
+                imageResId = R.drawable.profile_1, // Replace with your stylist image resources
                 navController = navController
             )
 
@@ -496,7 +499,7 @@ fun FeaturedStylistsSection(navController: NavHostController) {
                 name = "Michael",
                 specialty = "Barber",
                 rating = 4.8f,
-                imageResId = R.drawable.braids, // Replace with your stylist image resources
+                imageResId = R.drawable.profile_2, // Replace with your stylist image resources
                 navController = navController
             )
 
@@ -504,7 +507,7 @@ fun FeaturedStylistsSection(navController: NavHostController) {
                 name = "Sophia",
                 specialty = "Nail Artist",
                 rating = 4.7f,
-                imageResId = R.drawable.braids, // Replace with your stylist image resources
+                imageResId = R.drawable.profile_3, // Replace with your stylist image resources
                 navController = navController
             )
 
@@ -512,7 +515,7 @@ fun FeaturedStylistsSection(navController: NavHostController) {
                 name = "David",
                 specialty = "Massage Therapist",
                 rating = 4.9f,
-                imageResId = R.drawable.braids, // Replace with your stylist image resources
+                imageResId = R.drawable.profile_4, // Replace with your stylist image resources
                 navController = navController
             )
         }
@@ -635,7 +638,7 @@ fun FeaturedGallerySection() {
             )
         }
 
-        // Gallery image
+        // Gallery auto-sliding carousel
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -654,12 +657,8 @@ fun FeaturedGallerySection() {
             Box(
                 modifier = Modifier.fillMaxSize()
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.loonstyle),
-                    contentDescription = "Gallery Image",
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize()
-                )
+                // Auto-sliding image carousel
+                AutoSlidingCarousel()
 
                 // Icon overlay in bottom right
                 Box(
@@ -680,6 +679,45 @@ fun FeaturedGallerySection() {
                     )
                 }
             }
+        }
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun AutoSlidingCarousel() {
+    val imageList = listOf(
+        R.drawable.banner_1,
+        R.drawable.banner_2,
+        R.drawable.banner_3,
+        R.drawable.loonstyle
+    )
+
+    val pagerState = rememberPagerState(pageCount = { imageList.size })
+
+    // Auto-sliding logic
+    LaunchedEffect(Unit) {
+        while (true) {
+            delay(3000) // Change slide every 3 seconds
+            val nextPage = (pagerState.currentPage + 1) % imageList.size
+            pagerState.animateScrollToPage(nextPage)
+        }
+    }
+
+    // HorizontalPager for the images
+    HorizontalPager(
+        state = pagerState,
+        modifier = Modifier.fillMaxSize(),
+        pageSpacing = 0.dp,
+        userScrollEnabled = true // Allow manual swiping too
+    ) { page ->
+        Box(modifier = Modifier.fillMaxSize()) {
+            Image(
+                painter = painterResource(id = imageList[page]),
+                contentDescription = "Gallery Image ${page + 1}",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
+            )
         }
     }
 }
