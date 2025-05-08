@@ -8,6 +8,9 @@ Loon is a mobile application designed to simplify salon booking and management. 
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 ![MVVM](https://img.shields.io/badge/MVVM-007396?style=for-the-badge&logo=architecture&logoColor=white)
 
+##Demo
+
+https://github.com/user-attachments/assets/4705829a-63f4-4ba4-a732-47544132d48a
 
 ## Features
 
