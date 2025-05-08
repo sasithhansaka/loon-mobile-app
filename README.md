@@ -10,7 +10,13 @@ Loon is a mobile application designed to simplify salon booking and management. 
 
 ## Demo
 
-https://github.com/user-attachments/assets/4705829a-63f4-4ba4-a732-47544132d48a
+<div align="center">
+  <p>
+    <a href="https://github.com/user-attachments/assets/4705829a-63f4-4ba4-a732-47544132d48a">
+      https://github.com/user-attachments/assets/4705829a-63f4-4ba4-a732-47544132d48a
+    </a>
+  </p>
+</div>
 
 ## Features
 
